@@ -1,26 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NavBar from './components/NavBar';
+import AddUser from './components/AddUser';
+import './css/bulma.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.logout = this.logout.bind(this);
+    this.addUser = this.addUser.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.state = {
+      visible: ''
+    }
+  }
+
+  logout() {
+    this.props.history.goBack('/');
+  }
+  
+  addUser() {
+    this.setState({visible: 'is-active'})
+  }
+
+  closeModal() {
+    this.setState({visible: ''})
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+       <NavBar logout={this.logout} visible={this.state.visible} addUser={this.addUser} />
+       <AddUser closeModal={this.closeModal} visibility={this.state.visible} />
       </div>
+
     );
   }
 }

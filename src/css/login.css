@@ -1,0 +1,38 @@
+.hero.is-colorful {
+    background: linear-gradient(to right, #e2e4eb, #b3e4eb);
+}
+.pad-150 {
+    padding: 150px;
+}
+.form-wrapper {
+    margin-left: 100px;
+}
+form .form-title {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+form .input,
+form .button {
+    height: 45px
+}
+form .input {
+    background-color: #e6e6e6;
+    color: #666666;
+    font-weight: bold;
+    border: #e6e6e6 1px solid;
+}
+form .input:hover {
+    border: #e6e6e6 1px solid;
+}
+form .button {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 8px;
+}
+.column.vcenter {
+    display: flex;
+    align-items: center;
+}
