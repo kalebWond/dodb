@@ -1,6 +1,19 @@
 nav {
   background: linear-gradient(to right, #e2e4eb, #b3e4eb);
 }
+
 .modal-card-head{
 	background: linear-gradient(to top, #e2e4eb, #b3e4eb);
+}
+
+.menu{
+  display: flex;
+  justify-content: center;
+  align-items: bottom;
+  border: 5;
+}
+
+.custom{
+	padding: 3%;
+	width: 95%;
 }

@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
 import Login from './components/Login';
+import Students from './components/Students';
+import Register from './components/Register';
+import GradeReport from './components/GradeReport';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -12,6 +15,11 @@ const Root = () => {
 			<Switch>
 				<Route exact path="/" component={Login} />
 				<Route exact path="/home" component={App} />
+				<Route exact path="/students" component={Students} />
+				<Route exact path="/add" component={Register} />
+				<Route exact path="/grades" component={GradeReport} />
+			{/*}	<Route exact path="/courses" component={App} />
+				<Route exact path="/grades" component={App} /> */}
 			</Switch>
 		</BrowserRouter>
 		)

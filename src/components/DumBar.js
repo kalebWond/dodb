@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../img/login.png';
 import '../css/main.css';
 
-const NavBar = (props) => {
+const DumBar = (props) => {
 
 	return(
 		<nav className="navbar" role="navigation" aria-label="main navigation">
@@ -24,8 +24,8 @@ const NavBar = (props) => {
 		    <div className="navbar-end">
 		      <div className="navbar-item">
 		        <div className="buttons">
-		          <a className="button is-primary" onClick={props.addUser}>
-		            <strong>Add User</strong>
+		          <a className="button is-primary" onClick={() => props.history.push('/add')}>
+		            <strong>Register Student</strong>
 		          </a>
 		          <a className="button is-light" onClick={props.logout}>
 		            Log out
@@ -38,4 +38,4 @@ const NavBar = (props) => {
 		)
 }
 
-export default NavBar;
+export default DumBar;

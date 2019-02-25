@@ -1,16 +1,55 @@
 import React from 'react';
+import axios from 'axios';
 import '../css/login.css';
 import login_logo from '../img/login.png';
 
 class Login extends React.Component {
-	// state = {
-	// 	userName: ''
-	// 	password: ''
-	// }
-	login(e) {
+	
+	constructor() {
+		super();
+		this.state = {
+			userName: '',
+			password: ''
+		}
+	}
+
+	login = (e) => {
 		e.preventDefault();
-		this.props.history.push('/home');
+		
+		let data = {
+			username: this.state.userName,
+			password: this.state.password
+		}
+		console.log(data);
+
+		const url = "http://localhost:8181/login";
+		axios({
+			method: 'post',
+			url: url,
+			data: data
+		}).then(data => {
+					console.log(data);
+					if(data.data.length !== 0 ) {
+						this.props.history.push('/home')
+					}
+					
+					else {
+						alert("Could not Login. Check Credentials.")
+					}})
+			.catch(err => console.log(err));
+		
 		// localStorage.setItem('userName', true)
+	}
+
+	onChangeHandler = (event) => {
+		let id = event.target.id;
+		if (id === "user") {
+			this.setState({userName: this.userName.value});
+		}
+
+		else if (id === "pass") {
+			this.setState({password: this.password.value});
+		}
 	}
 
 	render() {
@@ -28,25 +67,29 @@ class Login extends React.Component {
 				                                <img src={login_logo} alt="login_logo" />
 				                            </figure>
 				                        </div> 
-				                        <div className="column">
-				                            <div className="form-wrapper">
-				                               <form onSubmit={(e)=> this.login(e)}>
-				                                   <span className="form-title">User Login</span>
-				                                    <div className="field">
-				                                        <div className="control">
-				                                            <input className="input is-rounded" type="text" placeholder="Your User Name" autoFocus />
-				                                        </div>
-				                                    </div> 
+                    <div className="column">
+                        <div className="form-wrapper">
+                           <form method="POST" onSubmit={(e)=> this.login(e)}>
+                               <span className="form-title">User Login</span>
+                                <div className="field">
+                                    <div className="control">
+                                        <input id="user" className="input is-rounded" ref={(input) => this.userName = input }
+                                        	value={this.state.userName} onChange={this.onChangeHandler}
+                                        	type="text" placeholder="Your User Name" autoFocus />
+                                    </div>
+                                </div> 
 
-				                                    <div className="field">
-				                                        <div className="control">
-				                                            <input className="input is-rounded" type="password" placeholder="Your Password" />
-				                                        </div>
-				                                    </div>
-				                                    <input type="submit" value="Login" className="button is-block is-fullwidth is-primary is-rounded" />
-				                                </form> 
-				                            </div> 
-				                        </div> 
+                                <div className="field">
+                                    <div className="control">
+                                        <input id="pass" className="input is-rounded" ref={(input) => this.password = input}
+                                        	value={this.state.password} onChange={this.onChangeHandler}
+                                        	type="password" placeholder="Your Password" />
+                                    </div>
+                                </div>
+                                <input type="submit" value="Login" className="button is-block is-fullwidth is-primary is-rounded" />
+                            </form> 
+                        </div> 
+                    </div> 
 				                    </div> 
 				                </div>
 				            </div>
@@ -57,10 +100,6 @@ class Login extends React.Component {
 			</div>
 			)
 	}
-
-	// Login.contextTypes = {
-	// 	router: React.PropTypes.object
-	// }
 }
 
 export default Login;

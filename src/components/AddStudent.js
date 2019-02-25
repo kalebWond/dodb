@@ -1,48 +1,14 @@
 import React from 'react';
-import '../css/main.css';
 
-class AddUser extends React.Component {
-
-	constructor() {
-		super();
-		this.state = {
-			userName: '',
-			password: '',
-			password_confirm: ''
-		}
-	}
-
-	onChangeHandler = (event) => {
-		
-		let id = event.target.id;
-		switch(id) {
-			case "userName":
-				this.setState({userName: this.userName.value});
-				break;
-			case "password_confirm":
-				this.setState({password_confirm: this.passConfirm.value});
-				break;
-			case "password":
-				this.setState({password: this.password.value});
-				break;
-		}
-		// if(this.state.userName.length > 2 && this.state.password.length !== 0 && this.state.password === this.state.password_confirm) {
-		// 	console.log("hello condition met");
-		// 	this.button.removeAttribute('disabled');
-		// }
-		// else {
-		// 	this.button.setAttribute("disabled", "disabled");
-		// }
-	}
+class AddStudent extends React.Component {
 
 	render() {
-
 		return(
 			<div className={'modal ' + this.props.visibility} >
 			  <div className="modal-background"></div>
 			  <div className="modal-card">
 			    <header className="modal-card-head">
-			      <p className="modal-card-title">Add User</p>
+			      <p className="modal-card-title">Register Student</p>
 			      <button className="delete" aria-label="close" onClick={this.props.closeModal}></button>
 			    </header>
 			    <section className="modal-card-body">
@@ -79,9 +45,8 @@ class AddUser extends React.Component {
 			    </footer>
 			  </div>
 			</div>
-		)
-	
+			)
 	}
 }
 
-export default AddUser;
+export default AddStudent;

@@ -36,3 +36,7 @@ form .button {
     display: flex;
     align-items: center;
 }
+.btn_css {
+    display: flex;
+    flex-direction: row;
+}
