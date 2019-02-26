@@ -57,7 +57,7 @@ class Students extends React.Component {
 				<AddUser closeModal={this.closeModal} visibility={this.state.visible} />
 				<ReactTable className="custom" data={this.state.students} 
 					columns={columns} SubComponent={row => {
-						console.log(row);
+						console.log(row.original.Id);
 				    return (
 				      <SubTable studId={row.original.Id} />
     );

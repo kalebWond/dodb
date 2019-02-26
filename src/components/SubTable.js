@@ -4,8 +4,22 @@ import ReactTable from 'react-table';
 
 class SubTable extends React.Component {
 	
-	componentWillMount() {
+	constructor() {
+		super();
+		this.state = {
+			data: []
+		}
+	}
 
+	componentWillMount() {
+		axios({
+			url: 'http://localhost:8181/getGrade',
+			method: 'get',
+			params: {
+				Id: this.props.studId
+			}
+		}).then(data => this.setState({data: data.data}))
+			.catch(err => console.log(err))
 	}
 
 	render() {
@@ -13,17 +27,24 @@ class SubTable extends React.Component {
 		const columns = [
 			{
 				Header: 'Subject',
-				accessor: 'Subject'
+				accessor: 'Name'
 			},
 			{
-				Header: 'Result',
-				accessor: 'FinalGrade'
+				Header: 'Grade',
+				accessor: 'Grade'
 			}
 		]
 
-		return(
-			<ReactTable data={{Subject:"API", FinalGrade:100}} columns={columns} />
-			)
+		if(this.state.data.length !== 0){
+			return(
+				<ReactTable pageSize={8} data={this.state.data} columns={columns} />
+				)
+		}
+
+		else {
+			return <div>Waiting For Data</div>
+		}
+
 	}
 }
 

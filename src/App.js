@@ -34,6 +34,14 @@ class App extends Component {
        <NavBar logout={this.logout} visible={this.state.visible} addUser={this.addUser} />
        <AddUser closeModal={this.closeModal} visibility={this.state.visible} />
        <Menu history={this.props.history} />
+       <footer className="footer" style={{marginTop:"20%", background:"#dee"}} >
+         <div className="content has-text-centered">
+           <p>
+             <strong>Student</strong> Management System <code>powered by</code> PostgreSQL. Front-side is made using <strong>React.js</strong> 
+              and the API using <strong>Node.js</strong>
+           </p>
+         </div>
+       </footer>
       </div>
 
     );
