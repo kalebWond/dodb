@@ -53,7 +53,7 @@ class Students extends React.Component {
 
 		return(
 			<div>
-				<DumBar history={this.props.history} logout={this.logout} visible={this.state.visible} />
+				<DumBar history={this.props.history} logout={this.logout} />
 				<AddUser closeModal={this.closeModal} visibility={this.state.visible} />
 				<ReactTable className="custom" data={this.state.students} 
 					columns={columns} SubComponent={row => {

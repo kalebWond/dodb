@@ -30,7 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="bod">
        <NavBar logout={this.logout} visible={this.state.visible} addUser={this.addUser} />
        <AddUser closeModal={this.closeModal} visibility={this.state.visible} />
        <Menu history={this.props.history} />

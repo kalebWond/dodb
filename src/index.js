@@ -5,7 +5,9 @@ import './index.css';
 import Login from './components/Login';
 import Students from './components/Students';
 import Register from './components/Register';
+import Payments from './components/Payments';
 import GradeReport from './components/GradeReport';
+import Course from './components/Course';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -18,8 +20,8 @@ const Root = () => {
 				<Route exact path="/students" component={Students} />
 				<Route exact path="/add" component={Register} />
 				<Route exact path="/grades" component={GradeReport} />
-			{/*}	<Route exact path="/courses" component={App} />
-				<Route exact path="/grades" component={App} /> */}
+				<Route exact path="/courses" component={Course} />
+				<Route exact path="/payments" component={Payments} />
 			</Switch>
 		</BrowserRouter>
 		)

@@ -26,7 +26,17 @@ class Register extends React.Component {
 			url: Url,
 			data: this.state
 		}).then(data => console.log(data))
-			.catch(err => console.log(err));
+			.then(() => {
+				alert(this.name.value+" has been registered!")
+				this.name.value='';
+				this.phone.value='';
+				this.dob.value="";
+				this.enroll.value="";
+				this.department.value="";
+			})
+			.catch(err => {
+				console.log(err);
+				alert("Could not Register;")});
 		// console.log("submitted");
 	}
 

@@ -18,7 +18,9 @@ class SubTable extends React.Component {
 			params: {
 				Id: this.props.studId
 			}
-		}).then(data => this.setState({data: data.data}))
+		}).then(data => {
+				console.log(data);
+				this.setState({data: data.data})})
 			.catch(err => console.log(err))
 	}
 

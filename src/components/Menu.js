@@ -4,7 +4,6 @@ import '../css/main.css';
 class Menu extends React.Component {
 
 	render() {
-		console.log(this);
 		return(
 			<div className="menu">
 				<div style={{marginTop: "200px"}} className="field is-grouped">
@@ -22,8 +21,8 @@ class Menu extends React.Component {
 				  </p>
 				  <p className="control">
 				    <a className="button is-large is-success is-fullwidth"
-				    		onClick={() => {this.props.history.push('/grades')}} >
-				      Grade Reports
+				    		onClick={() => {this.props.history.push('/payments')}} >
+				      Payments
 				    </a>
 				  </p>
 				</div>
